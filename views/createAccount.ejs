@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+        <style>
+            .error-message {
+                color: red;
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body onload="updateTime()">
+        <%- include('header') %>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/find">Find a dog/cat</a></li>
+                <li><a href="/dogcare">Dog Care</a></li>
+                <li><a href="/catcare">Cat Care</a></li>
+                <li><a href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a class="active" href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        </div>
+        <div class="normal">
+            <br><br>
+            <fieldset class="create-account">
+                <h2>Create an Account</h2>
+                <form action="/create-account" method="post">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <% if (message1) { %>
+                        <p class="error-message"><%= message1 %></p>
+                    <% } %>
+                    <br><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <% if (message2) { %>
+                        <p class="error-message"><%= message2 %></p>
+                    <% } %>
+                    <br>
+                    <button type="submit">Create Account</button>
+                </form>
+
+                <p>
+                    <strong>Username format : </strong> can have letters (both upper and lower case) and digits only
+                    <br>
+                    <strong>Password format : </strong> must be at least 4 characters long, can have letters and numbers,
+                    <br> BUT must have at least one letter and one number.
+                </p>
+
+            </fieldset>
+        </div>
+        <script>
+            const passwordInput = document.getElementById('password');
+
+            passwordInput.addEventListener('mouseover', function() {
+                passwordInput.type = 'text';
+            });
+
+            passwordInput.addEventListener('mouseout', function() {
+                passwordInput.type = 'password';
+            });
+        </script>
+        <%- include('footer') %>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+    </head>
+    <body onload="updateTime()">
+        <%- include('header.ejs') %>
+        <nav>
+            <ul>
+                <li><a class="active" href="/home">Home</a></li>
+                <li><a href="/find">Find a dog/cat</a></li>
+                <li><a href="/dogcare">Dog Care</a></li>
+                <li><a href="/catcare">Cat Care</a></li>
+                <li><a href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        <div class="normal">
+            <h1>----------------<br>Welcome to CAREfor Paws<br>----------------</h1>
+            <table>
+                <tr>
+                    <td><img src="/images/chat-botte.jpg" alt="Chat botté"></td>
+                    <td id="home-text">CAREfor Paws is a compagny designated to find a great home for precious furry friends.
+                        Here you could find your dream best friend !
+                        Learn about our different furry buddies, search for a specific one and educate yourself on 
+                        how to take care of our little friends. </td>
+                </tr>
+            </table>
+        </div>
+        <footer>
+            <a href="/statement">Privacy/Disclamer Statement</a>
+        </footer>
+    </body>
+</html>

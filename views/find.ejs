@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Paw Rescue</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+  </head>
+  <body onload="updateTime()">
+    <%-include ('header.ejs') %>
+    <nav>
+      <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a class="active" href="/find">Find a dog/cat</a></li>
+          <li><a href="/dogcare">Dog Care</a></li>
+          <li><a href="/catcare">Cat Care</a></li>
+          <li><a href="/giveaway">Have a pet to give away?</a></li>
+          <% if (loggedIn) { %>
+            <li><a href="/logout">Log Out</a></li>
+        <% } else { %>
+            <li><a href="/createAccount">Create an account</a></li>
+          <% } %>
+          <li><a href="/contactus">Contact Us</a></li>
+
+      </ul>
+  </nav>
+    <div class="middle" id="choice">
+      <fieldset class="choice-of-animal">
+        <b>What are you looking for?</b>
+        <table class="center">
+          <tr>
+            <td>
+              <a href="/dogForm">
+                <img class="animal-choices" src="/images/small-dog.jpg" alt="Small dog pic">
+                <!--Pinterest, https://pin.it/2W1e8IY4d -->
+              </a>
+            </td>
+            <td>
+              <a href="/catForm">
+                <img class="animal-choices" src="/images/cat-pic.jpg" alt="Small cat pic">
+                <!--Pinterest, https://pin.it/5cfH8yDRp -->
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th><a href="/dogForm">DOG</a></th>
+            <th><a href="/catForm">CAT</a></th>
+          </tr>
+        </table>
+      </fieldset>
+    </div>
+    <%-include ('footer.ejs') %>
+  </body>
+</html>

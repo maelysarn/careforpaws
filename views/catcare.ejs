@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+    </head>
+    <body onload="updateTime()">
+        <%-include('header')%>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/find">Find a dog/cat</a></li>
+                <li><a href="/dogcare">Dog Care</a></li>
+                <li><a class="active" href="/catcare">Cat Care</a></li>
+                <li><a href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        <div class="normal">
+            <h1>Cat Care</h1>
+            <table>
+                <tr>
+                    <td>
+                        <a href="https://ndius.com/proper-cat-care-is-easy-with-these-tips/?gad_source=1&gclid=CjwKCAiAibeuBhAAEiwAiXBoJLAFBmjzW5c7cWciuEIbjhtqvzXB1XSEMLoiq5IDp-ott08bXyUkuhoCdPMQAvD_BwE">
+                            <img src="/images/cat-bodybuilder.JPG" alt="Cat working out">
+                            <!--Pinterest, https://pin.it/1A3rcr08Q -->
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.petmd.com/cat/general-health/vet-approved-home-remedies-cats">
+                            <img src="/images/cant-see-cat.JPG" alt="Trying to see something - cat">
+                            <!--Pinterest, https://pin.it/1QJsUrDXM -->
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.forbes.com/sites/forbes-personal-shopper/article/best-cat-food/?sh=53462b443eea">
+                            <img src="/images/cute-cat.JPG" alt="Cat hesitating to walk in a puddle">
+                            <!--Pinterest, https://pin.it/36uA2jyDi -->
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="https://ndius.com/proper-cat-care-is-easy-with-these-tips/?gad_source=1&gclid=CjwKCAiAibeuBhAAEiwAiXBoJLAFBmjzW5c7cWciuEIbjhtqvzXB1XSEMLoiq5IDp-ott08bXyUkuhoCdPMQAvD_BwE">
+                            NDIUS - Proper Cat Care
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.petmd.com/cat/general-health/vet-approved-home-remedies-cats">
+                            petMD - Vet Approuved Remedies for Cats
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.forbes.com/sites/forbes-personal-shopper/article/best-cat-food/?sh=53462b443eea">
+                            Forbes - Best Cat Food
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <%-include('footer')%>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+    </head>
+    <body onload="updateTime()">
+        <%- include('header.ejs') %>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/find">Find a dog/cat</a></li>
+                <li><a href="/dogcare">Dog Care</a></li>
+                <li><a href="/catcare">Cat Care</a></li>
+                <li><a href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        </div>
+        <div class="normal">
+            <br><br>
+            <p>Logged out successfully! See you next time :)</p>
+        </div>
+        <%- include('footer.ejs') %>
+    </body>
+</html>

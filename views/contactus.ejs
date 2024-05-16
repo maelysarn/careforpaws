@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Paw Rescue</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+</head>
+  <body onload="updateTime()">
+    <%-include('header')%>
+    <nav>
+      <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/find">Find a dog/cat</a></li>
+          <li><a href="/dogcare">Dog Care</a></li>
+          <li><a href="/catcare">Cat Care</a></li>
+          <li><a href="/giveaway">Have a pet to give away?</a></li>
+          <% if (loggedIn) { %>
+            <li><a href="/logout">Log Out</a></li>
+          <% } else { %>
+            <li><a href="/createAccount">Create an account</a></li>
+          <% } %>
+          <li><a class="active" href="/contactus">Contact Us</a></li>
+
+      </ul>
+  </nav>
+    <div class="normal">
+      <h1>----------------<br>CAREfor Paws<br>----------------</h1>
+      <a
+        href="https://www.flaticon.com/free-stickers/duck"
+        title="duck stickers"
+      >
+        <img
+          src="/images/ducky.png"
+          alt="Duck stickers created by SoulGIE - Flaticon"
+          id="sticker"
+        >
+      </a>
+      <p>
+        By: Maëlys Arnaud <br><br>Student ID: 40278798 <br><br>My email:
+        <a href="mailto:ma.ae.arnd@gmail.com">ma.ae.arnd@gmail.com</a>
+      </p>
+    </div>
+    <%-include('footer')%>
+  </body>
+</html>

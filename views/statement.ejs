@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+    </head>
+    <body onload="updateTime()">
+        <%- include('header.ejs') %>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/find">Find a dog/cat</a></li>
+                <li><a href="/dogcare">Dog Care</a></li>
+                <li><a href="/catcare">Cat Care</a></li>
+                <li><a href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        <div class="normal">
+            <b id="statement">Don't worry, your informations will not be sold or misused. 
+               This website is also designed in a way that no malicious or incorrect information can be posted by a pet owner, or anyone else.</b>
+        </div>
+        <%- include('footer.ejs') %>
+    </body>
+</html>

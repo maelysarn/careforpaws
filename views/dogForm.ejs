@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+    </head>
+    <body onload="updateTime()">
+        <%-include('header.ejs') %>
+        <script>
+            const dogForm = document.getElementById("find-dog-form");
+
+            dogForm.addEventListener('submit', (event) => {
+                const elements = dogForm.elements;
+                let checkboxChecked = false;
+                let radioChecked = false;    
+                
+                // Loop through all elements in the form
+                for (let i = 0; i < elements.length; i++) {
+                    let element = elements[i];
+                
+                    // check if the element is a checkbox
+                    if (element.type === "checkbox") {
+                        if (element.checked) {
+                            checkboxChecked = true;
+                        }
+                    }
+                
+                    if (element.type === "radio" && element.checked){
+                        radioChecked = true;
+                    }
+
+                    // no need to check for select bc there no way there wont be a value 
+                }
+                
+                if (!checkboxChecked || !radioChecked) {
+                    alert("Please fill out all of the fields");
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a class="active" href="/find">Find a dog/cat</a></li>
+                <li><a href="/dogcare">Dog Care</a></li>
+                <li><a href="/catcare">Cat Care</a></li>
+                <li><a href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        <div class="normal">
+            <h2>Please fill out the following questions before proceeding</h2>
+            <fieldset class="info">
+                <form action="/findDog" method="POST" id="find-dog-form">
+                    <label>Breed of dog</label>
+                    <select id="breed" name="breed">
+                        <option value="1">Breed 1</option>
+                        <option value="2">Breed 2</option>
+                        <option value="3">Breed 3</option>
+                        <option value="4">Breed 4</option>
+                        <option value="5">Breed 5</option>
+                        <option value="6">Doesn't matter</option>
+                    </select>
+                    <br><br>
+    
+                    <label>Preferred age range</label>
+                    <select id="age" name="age">
+                        <option value="Less than a year">Less than a year</option>
+                        <option value="Between 1 and 5 years old">Between 1 and 5 years old</option>
+                        <option value="Doesn't matter">Doesn't matter</option>
+                    </select>
+                    <br><br>
+    
+                    <label>Preferred gender</label>
+                    <input type="radio" id="fem" name="gender" value="Female">
+                    <label>Female</label>
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label>Male</label>
+                    <input type="radio" id="dontmatter" name="gender" value="Doesn't matter">
+                    <label>Doesn't matter</label>
+                    <br><br><br>
+    
+                    <label>Check the boxes of which you wish the cat gets along with:</label>
+                    <br><br>
+                    <label>Gets along with dogs?</label>
+                    <input type="radio" id="with-dog" name="along-dog" value="Yes" required>
+                    <label>Yes</label>
+                    <input type="radio" id="no-dog" name="along-dog" value="No" required>
+                    <label>No</label>
+                    <br><br>
+
+                    <label>Gets along with other cats?</label>
+                    <input type="radio" id="with-cat" name="along-cat" value="Yes" required>
+                    <label>Yes</label>
+                    <input type="radio" id="no-cat" name="along-cat" value="No" required>
+                    <label>No</label>
+                    <br><br>
+
+                    <label>Suitable for a family with small children?</label>
+                    <input type="radio" id="with-child" name="along-child" value="Yes" required>
+                    <label>Yes</label>
+                    <input type="radio" id="no-child" name="along-child" value="No" required>
+                    <label>No</label>
+
+                    <br><br>
+
+                    <button type="submit">Submit</button>
+                    <button type="reset">Clear</button>
+    
+                </form>
+            </fieldset>
+        </div>
+        <%-include('footer.ejs')%>
+    </body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css" type="text/css">
+    </head>
+    <body onload="updateTime()">
+        <%-include('header.ejs') %>
+        <script>
+            // now this part is for the putting for adoption form 
+            const adoptionForm = document.getElementById("adoption-form");
+
+            adoptionForm.addEventListener('submit', (event) =>{
+                // since i put everything with required, there is no need to check if they have a value
+                // we just need to check if name and email is the right pattern
+
+                // validate name 
+                const namePattern = /^[a-zA-Z]+(?:[' -][a-zA-Z]+)*$/;
+                const name = document.getElementById("name-in-adopt").value;
+
+                if (!name.trim()){
+                    alert("Please enter a name");
+                    event.preventDefault();
+                    return false; // stop further processing
+                }
+
+                if (!namePattern.test(name)){
+                    alert("Please enter a valid name");
+                    event.preventDefault();
+                    return false; // stop further processing
+                };
+
+                // validate email
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const email = document.getElementById("email-in-adopt").value;
+
+                if (!email.trim()){
+                    alert("Please enter a email");
+                    event.preventDefault();
+                    return false; // stop further processing
+                }
+
+                if (!emailPattern.test(email)){
+                    alert("Please enter a valid email (has to have @___.___)");
+                    event.preventDefault();
+                    return false; // stop further processing
+                };
+            });
+        </script>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/find">Find a dog/cat</a></li>
+                <li><a href="/dogcare">Dog Care</a></li>
+                <li><a href="/catcare">Cat Care</a></li>
+                <li><a class="active" href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        <div id="normal-adoption">
+            <h2>Fill this out to give up your pet for adoption</h2>
+            <br>
+            <fieldset class="info">
+                <form id="adoption-form" action="/giveaway" method="POST">
+                    <input type="hidden" name="username" value="<%= username %>">
+
+                    <label>What pet is it?</label>
+                    <br>
+                    <input type="radio" id="cat" name="pet-type" value="Cat" required>
+                    <label>Cat</label>
+                    <input type="radio" id="dog" name="pet-type" value="Dog" required>
+                    <label>Dog</label>
+                    <br><br>
+
+                    <label>Bread of animal</label>
+                    <br>
+                    <!--will enter the name of different bread later (when will have dogs to search for)-->
+                    <select name="breed">
+                        <option value="1">Breed 1</option>
+                        <option value="2">Breed 2</option>
+                        <option value="3">Breed 3</option>
+                        <option value="4">Breed 4</option>
+                        <option value="5">Breed 5</option>
+                        <option value="6">Mix Breed</option>
+                    </select>
+                    <br><br>
+    
+                    <label>Age range</label>
+                    <br>
+                    <select name="age">
+                        <option value="Less than a year">Less than a year</option>
+                        <option value="Between 1 and 5 years old">Between 1 and 5 years old</option>
+                        <option value="Older than 5 years old">Older than 5 years old</option>
+                    </select>
+                    <br><br>
+    
+                    <label>Animal gender</label>
+                    <input type="radio" id="fem" name="gender" value="Female" required>
+                    <label>Female</label>
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label>Male</label>
+                    <br><br>
+    
+                    <label>Does it get along with other dogs?</label>
+                    <input type="radio" id="with-dog" name="along-dog" value="Yes" required>
+                    <label>Yes</label>
+                    <input type="radio" id="no-dog" name="along-dog" value="No" required>
+                    <label>No</label>
+                    <br><br>
+
+                    <label>Does it get along with other cats?</label>
+                    <input type="radio" id="with-cat" name="along-cat" value="Yes" required>
+                    <label>Yes</label>
+                    <input type="radio" id="no-cat" name="along-cat" value="No" required>
+                    <label>No</label>
+                    <br><br>
+
+                    <label>Is it suitable for a family with small children?</label>
+                    <input type="radio" id="with-child" name="along-child" value="Yes" required>
+                    <label>Yes</label>
+                    <input type="radio" id="no-child" name="along-child" value="No" required>
+                    <label>No</label>
+                    <br><br><br>
+
+                    <label>Any important or relevant details ?</label>
+                    <br><br>
+                    <textarea name="bragging" id="braggin" cols="30" rows="10" placeholder="Be the Poet to your Pet..."></textarea>
+                    <br>
+
+                    <label>Your Full Name : </label>
+                    <input type="text" id="name-in-adopt" name="owner-name">
+                    <br><br>
+
+                    <label>Your email :</label>
+                    <input type="email" id="email-in-adopt" name="email">
+                    <br><br>
+
+                    <button type="submit">Submit</button>
+                    <button type="reset">Clear</button>
+    
+                </form>
+            </fieldset>
+        </div>
+        <%-include('footer.ejs')%>
+    </body>
+</html>

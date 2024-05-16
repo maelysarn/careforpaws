@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css">
+    </head>
+    <body onload="updateTime()">
+        <%-include('header.ejs')%>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/find">Find a dog/cat</a></li>
+                <li><a class="active" href="/dogcare">Dog Care</a></li>
+                <li><a href="/catcare">Cat Care</a></li>
+                <li><a href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        <div class="normal">
+            <h1>Dog Care</h1>
+            <table>
+                <tr>
+                    <td>
+                        <a href="https://www.peta.org/living/animal-companions/caring-dogs/?utm_source=PETA::Google&utm_medium=Ad&utm_campaign=0422::veg::PETA::Google::SEA-Vegan-Grant::::searchad&gad_source=1&gclid=CjwKCAiAibeuBhAAEiwAiXBoJMyR8L6P6PZv1gaMDcmB7P81xP0Bt0yU0hAwqkKWcybdx4G-JSa4wBoCTVwQAvD_BwE">
+                            <img src="/images/mya-drinking.jpg" alt="Mya, a chihuahua, at a party">
+                            <!--This is my picture-->
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://vcacanada.com/know-your-pet/care-of-open-wounds-in-dogs#:~:text=Initially%2C%20attempt%20to%20stop%20the,further%20contamination%20of%20the%20injury.">
+                            <img src="/images/mya-trotinnette.jpg" alt="Mya look-alike on a trotinnette">
+                            <!--Screenshot from youtube, https://youtu.be/Rsq_ReO-73g?si=Fz_xjXaY5bq9kl61 -->
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.merrickpetcare.com/blog/10-ways-to-show-love-to-your-dog/">
+                            <img src="/images/dog-on-pony.JPG" alt="pug on a poney">
+                            <!--Pinterest, https://pin.it/YlR8In6K6 -->
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="https://www.peta.org/living/animal-companions/caring-dogs/?utm_source=PETA::Google&utm_medium=Ad&utm_campaign=0422::veg::PETA::Google::SEA-Vegan-Grant::::searchad&gad_source=1&gclid=CjwKCAiAibeuBhAAEiwAiXBoJMyR8L6P6PZv1gaMDcmB7P81xP0Bt0yU0hAwqkKWcybdx4G-JSa4wBoCTVwQAvD_BwE">
+                            PETA - Dog Care 101
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://vcacanada.com/know-your-pet/care-of-open-wounds-in-dogs#:~:text=Initially%2C%20attempt%20to%20stop%20the,further%20contamination%20of%20the%20injury.">
+                            VCA - Wounded Dog (What to do?)
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://www.merrickpetcare.com/blog/10-ways-to-show-love-to-your-dog/">
+                            Merrick - Show Your Dog Love
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <%-include('footer.ejs')%>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<header>
+    <script>
+        function updateTime(){
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "October", "September", "November", "December"];
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            
+            const date = new Date();
+
+            const day = date.getDate();
+            const weekDay = days[date.getDay()];
+            const month = months[date.getMonth()];
+
+            // time section (make sure to have the 0 before the 1 digit minutes and seconds)
+            let minutes = "" + date.getMinutes();
+            if (("" + date.getMinutes()).length == 1)
+                minutes = "0" + date.getMinutes();
+
+            let seconds = "" + date.getSeconds();
+            if (("" + date.getSeconds()).length == 1)
+                seconds = "0" + date.getSeconds();
+
+            const time = date.getHours() + ":"+ minutes + ":" + seconds;
+
+            document.getElementById("currenttime").innerHTML = weekDay + ", " + month + " " + day + ", " + date.getFullYear() + "\n" + time;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+    <table>
+        <tr>
+            <td>
+                <a href="/home">
+                    <img id="logo" src="/images/shiro-bodybuilder.jpg" alt="Shiro super hero!!">
+                    <!--Pinterest, https://pin.it/3Fx9in3QU -->
+                </a>
+            </td>
+            <th>CAREFOR PAWS</th>
+            <td>&nbsp;&nbsp;</td>
+            <td id="currenttime"></td>
+        </tr>
+    </table>
+</header>

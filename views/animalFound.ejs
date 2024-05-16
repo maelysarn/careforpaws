@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paw Rescue</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/dog-adoption-styling.css" type="text/css">
+    </head>
+    <body onload="updateTime()">
+        <%- include('header') %>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a class="active" href="/find">Find a dog/cat</a></li>
+                <li><a href="/dogcare">Dog Care</a></li>
+                <li><a href="/catcare">Cat Care</a></li>
+                <li><a href="/giveaway">Have a pet to give away?</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/logout">Log Out</a></li>
+                <% } else { %>
+                    <li><a href="/createAccount">Create an account</a></li>
+                <% } %>
+                <li><a href="/contactus">Contact Us</a></li>
+
+            </ul>
+        </nav>
+        <div class="normalFound">
+            <h1>Matching Pet Records</h1>
+            <% if (matchingRecords.length === 0) { %>
+                <p>No matching records found.</p>
+            <% } else { %>
+                <ul>
+                    <% matchingRecords.forEach(record => { %>
+                        <li>
+                            <strong>Species:</strong> <%= record[2] %> &nbsp;
+                            <strong>Breed:</strong> <%= record[3] %> &nbsp;
+                            <strong>Age:</strong> <%= record[4] %> &nbsp;
+                            <strong>Gender:</strong> <%= record[5] %> <br>
+                            <strong>Good with Dogs:</strong> <%= record[6] %> &nbsp;
+                            <strong>Good with Cats:</strong> <%= record[7] %> &nbsp;
+                            <strong>Good with Children:</strong> <%= record[8] %> <br>
+                            <strong>Comment:</strong> <%= record[9] %><br>
+                            <strong>Owner:</strong> <%= record[10] %> &nbsp; 
+                            <strong>Email:</strong> <%= record[11] %>
+                        </li>
+                        <li><br></li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </div>
+        <%- include('footer') %>
+    </body>
+</html>
